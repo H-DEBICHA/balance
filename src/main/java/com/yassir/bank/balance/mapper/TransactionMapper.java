@@ -5,10 +5,8 @@ import com.yassir.bank.balance.dto.TransactionResponse;
 import com.yassir.bank.balance.model.Transaction;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface TransactionMapper {
-
-    Transaction toTransaction(TransactionRequest request);
 
     TransactionResponse toDto(Transaction transaction);
 }

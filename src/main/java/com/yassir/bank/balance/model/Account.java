@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,4 +29,18 @@ public class Account {
     @NotNull(message = "The 'customer' shouldn't be null")
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
+
+    @OneToMany
+    List<Transaction> transactionHistories;
+
+    public Account(Customer customer, BigDecimal balance) {
+        this.balance = balance;
+        this.customer = customer;
+    }
+
+    public Account(Long id, BigDecimal balance, Customer customer) {
+        this.id = id;
+        this.balance = balance;
+        this.customer = customer;
+    }
 }

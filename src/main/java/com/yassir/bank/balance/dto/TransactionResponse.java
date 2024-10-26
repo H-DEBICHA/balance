@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public record TransactionResponse(
-        AccountRequest fromAccount,
+        AccountResponse fromAccount,
 
-        AccountRequest toAccount,
+        AccountResponse toAccount,
 
         BigDecimal amount,
 
